@@ -1,0 +1,41 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files (large)
+*.tif
+*.tiff
+*.ovr
+*.aux.xml
+data/
+
+# Output
+output/
+
+# Env / secrets
+.env
+config.json
+
+# Matplotlib cache
+.mpl_cache/
+
+# Project data (large)
+4203810101100034/
+*.docx
+*.tfw
