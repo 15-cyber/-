@@ -207,6 +207,7 @@ def main():
     parser.add_argument("--meta", help="分层元数据文件路径 (.xlsx/.json/.txt)")
     parser.add_argument("--folder", "-f", help="剖面文件夹路径（文件夹名=剖面编号，自动找TIF）")
     parser.add_argument("--prompt", "-p", help="分析提示 (非交互模式)")
+    parser.add_argument("--gui", "-g", action="store_true", help="启动图形界面")
     parser.add_argument("--tool", "-t", help="手动调用工具箱中的工具 (不走 LLM)")
     parser.add_argument("--tool-params", default="{}", help="工具参数 (JSON 格式)")
 
@@ -278,6 +279,15 @@ def main():
         result = func(**params)
         print(result)
         return
+
+    # ── GUI 模式 ──
+    if args.gui:
+        from PyQt6.QtWidgets import QApplication
+        app = QApplication(sys.argv)
+        from hyperspectral_agent.ui.main_window import MainWindow
+        window = MainWindow()
+        window.show()
+        sys.exit(app.exec())
 
     # ── 单次分析模式 ──
     if args.prompt:
